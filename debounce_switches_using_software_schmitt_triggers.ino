@@ -18,6 +18,7 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
 }
 
+
 void loop() {
   // Read input from switch (assumed to be connected to A0 pin)
   int A0_input = analogRead(A0);
