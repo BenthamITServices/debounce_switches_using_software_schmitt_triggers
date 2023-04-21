@@ -14,7 +14,7 @@ Wokwi simulation at: https://wokwi.com/projects/362605454169795585
 bool Schmitt = false;
 const int threshold_high = 600;  // in counts
 const int threshold_low = 400;   // in counts
-const int LED_PIN = 13;
+const int LED_PIN = 9;
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
@@ -22,13 +22,13 @@ void setup() {
 
 void loop() {
   // Read input from switch (assumed to be connected to A0 pin)
-  int A0_input = analogRead(A0);
+  int A7_input = analogRead(A7);
 
   // Implement Schmitt trigger
-  if (A0_input > threshold_high && !Schmitt) {
+  if (A7_input > threshold_high && !Schmitt) {
     Schmitt = true;
   }
-  if (A0_input < threshold_low && Schmitt) {
+  if (A7_input < threshold_low && Schmitt) {
     Schmitt = false;
   }
 
