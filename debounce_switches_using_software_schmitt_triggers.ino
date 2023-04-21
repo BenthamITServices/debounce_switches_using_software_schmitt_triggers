@@ -7,6 +7,8 @@ This improves the readability of the code.
 Furthermore, we've simplified the LED control logic by using the boolean value directly in the digitalWrite() function.
 When the boolean value is true, digitalWrite() will write a HIGH value to the LED pin, and when it is false, it will write a LOW value to turn off the LED.
 This makes the code cleaner and easier to understand.
+
+Wokwi simulation at: https://wokwi.com/projects/362605454169795585
 */
 
 bool Schmitt = false;
@@ -17,7 +19,6 @@ const int LED_PIN = 13;
 void setup() {
   pinMode(LED_PIN, OUTPUT);
 }
-
 
 void loop() {
   // Read input from switch (assumed to be connected to A0 pin)
