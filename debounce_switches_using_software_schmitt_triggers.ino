@@ -1,7 +1,7 @@
 // Debounce switches using software Schmitt triggers
 
 /*
-In this improved code, we've removed unnecessary decimal points from the threshold values since they are integers.
+ChatGPT says: In this improved code, we've removed unnecessary decimal points from the threshold values since they are integers.
 We've also changed the if statement conditions in the Schmitt trigger to use logical not operator instead of comparing with false or true.
 This improves the readability of the code.
 Furthermore, we've simplified the LED control logic by using the boolean value directly in the digitalWrite() function.
@@ -21,14 +21,14 @@ void setup() {
 }
 
 void loop() {
-  // Read input from switch (assumed to be connected to A0 pin)
-  int A7_input = analogRead(A7);
+  // Better code suggested by Google Bard
+  // Read input from switch (assumed to be connected to A7 pin)
+  int A7_input = analogRead(A7);  // assuming 10-bit ADC on 5V reference
 
-  // Implement Schmitt trigger
+  // Check if the switch state has changed
   if (A7_input > threshold_high && !Schmitt) {
     Schmitt = true;
-  }
-  if (A7_input < threshold_low && Schmitt) {
+  } else if (A7_input < threshold_low && Schmitt) {
     Schmitt = false;
   }
 

@@ -46,7 +46,9 @@ A Boolean variable called Schmitt is defined, which can have one of two binary v
 Next how to implement a low pass RC filter to remove high frequency switching noise.  The obvious solution would be a resistor and a capacitor, but as a devout Yorkshire man I wondered if the cost of either could be eliminated?  And yes – looking at the data sheet for the ATMega328 the analog input pins are connected to a CMOS comparator with an input resistance of 100M and capacitance of about 10pF.  So the ADC input pin can be fed from a high value resistor without significantly affecting the voltages from the mechanical switch i.e. 0v or 5v. Using a high value resistor e.g. 1M creates an effective low pass filter just using the 10pF capacitance of the analog input pin resulting in a time constant of 10pF x 1M = 10uS or in the frequency domain a cut-off frequency of 15.9KHz.
 The combination of a passive RC filter together with a software defined Schmitt trigger is very effective at eliminating noise and de-bouncing switches as is shown by the yellow trace of image 1.
 
-Space and cost are reduced as one resistor; one capacitor and logic IC have been replaced by a single resistor and a few lines of code.
+If a longer time constant is needed I have used a 15M resistor on the analog input pin, which has a time constant of 150uS and a cut-off frequency of 1 KHz.
+
+Space and cost are reduced as one resistor; one capacitor and logic IC have been replaced by a single resistor and a few lines of code.  The saving in components and the flexibility offered by a software Schmitt trigger is even more apparent if interfacing to a rotary encoder with a built in push-button function as three inputs would be required.
 
 Finally makers can vary the value of the input resistor and the software defined Schmitt thresholds to optimise this deign to their specific needs.
 
