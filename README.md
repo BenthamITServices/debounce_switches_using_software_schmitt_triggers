@@ -24,14 +24,14 @@ void setup() {
 }
 
 void loop() {
+  // Better code suggested by Google Bard
   // Read input from switch (assumed to be connected to A7 pin)
-  int A7_input = analogRead(A7);
+  int A7_input = analogRead(A7);  // assuming 10-bit ADC on 5V reference
 
-  // Implement Schmitt trigger
+  // Check if the switch state has changed
   if (A7_input > threshold_high && !Schmitt) {
     Schmitt = true;
-  }
-  if (A7_input < threshold_low && Schmitt) {
+  } else if (A7_input < threshold_low && Schmitt) {
     Schmitt = false;
   }
 
